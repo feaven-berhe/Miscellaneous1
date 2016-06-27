@@ -1,0 +1,189 @@
+<p>Demonstration of viewBox, preserveAspectRatio, and transform attributes on the scaling of SVG elements.</p>
+<p>Each SVG has the same graphics content:</p><ul><li> a 5px(user coordinates) thick red rectangle drawn from (0,0) with 100% width and 100% height;</li><li>points drawn at the listed locations in user coordinates.</li></ul>
+<p>Each SVG element has a 2px blue border and is 150px tall.</p>
+
+<svg class='defs-only'>
+  <!-- Define the image using unspecified user coordinates -->
+  <defs>
+    <circle id='point' r='2' fill='currentColor'/>
+    <g id='graph' >
+      <rect x='0' y='0' width='100%' height='100%' stroke='red'
+            stroke-width:'5px' fill='none'/>
+      <use xlink:href='#point' x='0' y='100' />
+      <text x='0' y='100' fill='currentColor'>(0,100)</text>
+      
+      <use xlink:href='#point' x='20' y='50' />
+      <text x='20' y='50' fill='currentColor'>(20,50)</text>
+      
+      <use xlink:href='#point' x='50' y='20' />
+      <text x='50' y='20' fill='currentColor'>(50,20)</text>
+      
+      <use xlink:href='#point' x='80' y='80' />
+      <text x='80' y='80' fill='currentColor'>(80,80)</text>
+      
+    </g>
+  </defs>
+</svg>
+
+<table>
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>none</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>none</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg width='100%' preserveAspectRatio='none'>
+        <use xlink:href='#graph'  />
+      </svg>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>none</dd>
+        <dt>width</dt><dd>50%</dd>
+        <dt>preserveAspectRatio</dt><dd>none</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg width='50%' preserveAspectRatio='none'>
+        <use xlink:href='#graph'  />
+      </svg>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 0 100 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>none</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 0 100 100' width='100%' preserveAspectRatio='none'>
+        <use xlink:href='#graph'  />
+      </svg>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 0 100 100</dd>
+        <dt>width</dt><dd>50%</dd>
+        <dt>preserveAspectRatio</dt><dd>none</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 0 100 100' width='50%' preserveAspectRatio='none' >
+        <use xlink:href='#graph'/>
+      </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 0 200 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>none</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 0 200 100' width='100%' preserveAspectRatio='none' >
+        <use xlink:href='#graph'/>
+      </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>-100 0 200 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>none</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='-100 0 200 100' width='100%' preserveAspectRatio='none' >
+        <use xlink:href='#graph'/>
+      </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 0 100 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>xMinYMin slice</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 0 100 100' width='100%' preserveAspectRatio='xMinYMin slice'>
+        <use xlink:href='#graph'/>
+      </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 0 100 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>xMinYMin meet</dd>
+        <dt>transform</dt><dd>none</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 0 100 100' width='100%' preserveAspectRatio='xMinYMin meet' >
+        <use xlink:href='#graph'/>
+      </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 0 100 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>xMinYMin meet</dd>
+        <dt>transform</dt><dd>scale(2, 0.5) [on graphics content]</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 0 100 100' width='100%' preserveAspectRatio='xMinYMin meet'>
+        <use xlink:href='#graph' transform='scale(2,0.5)'/>
+      </svg>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <dl>
+        <dt>viewBox</dt><dd>0 -100 100 100</dd>
+        <dt>width</dt><dd>100%</dd>
+        <dt>preserveAspectRatio</dt><dd>xMinYMin meet</dd>
+        <dt>transform</dt><dd>scale(1,-1) [on graphics content]</dd>
+      </dl>
+    </td>
+    <td>
+      <svg viewBox='0 -100 100 100' width='100%' preserveAspectRatio='xMinYMin meet'>
+        <use xlink:href='#graph' transform='scale(1,-1)'/>
+      </svg>
+    </td>
+  </tr>
+  
+</table>

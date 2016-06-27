@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <h1>Scaling an SVG with a <code>viewBox</code></h1>
+  </head>
+  <body>
+
+
+<svg width="10cm" height="10cm">
+
+    <rect x="50" y="100" width="50" height="50"
+          style="stroke: #000000; fill: none;"/>
+
+    <rect x="100" y="100" width="50mm" height="50mm"
+          style="stroke: #000000; fill: none;" />
+
+</svg>
+ 
+
+
+  </body>
+<html>
+  
